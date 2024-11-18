@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
+    <style>
+        :root {
+            --background: #e0e5ec;
+            --shadow-light: #ffffff;
+            --shadow-dark: #a3b1c6;
+            --primary: #4a90e2;
+            --secondary: #7c5cbf;
+            --success: #47b881;
+            --warning: #f7b731;
+            --gradient-1: linear-gradient(45deg, #4a90e2, #7c5cbf);
+            --gradient-2: linear-gradient(45deg, #47b881, #4a90e2);
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--background);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 2rem;
+            color: #2d3748;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--background);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 8px 8px 16px var(--shadow-dark),
+                       -8px -8px 16px var(--shadow-light);
+            margin-bottom: 2rem;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            box-shadow: inset 8px 8px 16px var(--shadow-dark),
+                       inset -8px -8px 16px var(--shadow-light);
+            padding: 8px;
+            background: var(--gradient-1);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--background);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+            color: white;
+            background: var(--gradient-1);
+            box-shadow: 3px 3px 6px var(--shadow-dark),
+                       -3px -3px 6px var(--shadow-light);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--background);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 8px 8px 16px var(--shadow-dark),
+                       -8px -8px 16px var(--shadow-light);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0.5rem 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: var(--background);
+            border-radius: 5px;
+            margin: 0.5rem 0;
+            box-shadow: inset 3px 3px 6px var(--shadow-dark),
+                       inset -3px -3px 6px var(--shadow-light);
+        }
+
+        .progress {
+            height: 100%;
+            border-radius: 5px;
+            background: var(--gradient-2);
+            transition: width 0.3s ease;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-card {
+            background: var(--background);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 8px 8px 16px var(--shadow-dark),
+                       -8px -8px 16px var(--shadow-light);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .button {
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            background: var(--gradient-1);
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+            box-shadow: 5px 5px 10px var(--shadow-dark),
+                       -5px -5px 10px var(--shadow-light);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 7px 7px 14px var(--shadow-dark),
+                       -7px -7px 14px var(--shadow-light);
+        }
+
+        .skills-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="card">
+            <div class="profile-header">
+                <div class="profile-image">
+                    <img src="" alt="Profile Picture" id="profile-pic">
+                </div>
+                <div>
+                    <h1>John Doe</h1>
+                    <h2 style="color: var(--primary);">Computer Science Graduate</h2>
+                    <p>🎓 B.S. in Computer Science | 📍 New York University</p>
+                    <div>
+                        <span class="badge">Full Stack Developer</span>
+                        <span class="badge">Machine Learning</span>
+                        <span class="badge">Problem Solver</span>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" class="button">Resume</a>
+                        <a href="#" class="button">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h3>About Me</h3>
+                <p>Recent Computer Science graduate with a passion for building scalable web applications and exploring AI/ML technologies. During my academic journey, I've developed a strong foundation in data structures, algorithms, and software engineering principles. Currently seeking opportunities to contribute to innovative projects and continue learning in a dynamic environment.</p>
+            </div>
+        </div>
+
+        <!-- GitHub Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Repositories</h3>
+                <div class="stat-value" id="repos">25</div>
+            </div>
+            <div class="stat-card">
+                <h3>Contributions</h3>
+                <div class="stat-value">847</div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%"></div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <h3>Stars Earned</h3>
+                <div class="stat-value">56</div>
+            </div>
+            <div class="stat-card">
+                <h3>Pull Requests</h3>
+                <div class="stat-value">32</div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="card">
+            <h2>Technical Skills</h2>
+            <div class="skills-section">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
+                    <p>Python, JavaScript, Java, C++</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
+                    <p>React, Node.js, Express, HTML5/CSS3</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
+                    <p>MongoDB, PostgreSQL, Redis</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
+                    <p>Git, Docker, AWS, Linux</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Projects -->
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>AI-Powered Task Manager</h3>
+                <p>A smart task management system using machine learning for task prioritization and scheduling.</p>
+                <div class="badge">Python</div>
+                <div class="badge">TensorFlow</div>
+                <div class="badge">Flask</div>
+            </div>
+            <div class="project-card">
+                <h3>E-Learning Platform</h3>
+                <p>Full-stack web application for online learning with real-time collaboration features.</p>
+                <div class="badge">React</div>
+                <div class="badge">Node.js</div>
+                <div class="badge">MongoDB</div>
+            </div>
+            <div class="project-card">
+                <h3>Blockchain Voting System</h3>
+                <p>Secure and transparent voting system built on Ethereum blockchain.</p>
+                <div class="badge">Solidity</div>
+                <div class="badge">Web3.js</div>
+                <div class="badge">React</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Replace with your GitHub username
+        const username = 'your-username';
+        
+        // Fetch GitHub data
+        fetch(`https://api.github.com/users/${username}`)
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector('h1').textContent = data.name || 'John Doe';
+                document.getElementById('profile-pic').src = data.avatar_url;
+                document.getElementById('repos').textContent = data.public_repos;
+            });
+    </script>
+</body>
+</html>
